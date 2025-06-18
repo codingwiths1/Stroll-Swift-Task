@@ -27,6 +27,12 @@ class HomeScreen extends StatelessWidget {
       {"option": "Pending"},
     ];
 
+
+    List slider = [
+      {"name": "Amanda,22","question":"What is your favourite childhood memory"},
+      {"name": "Malta,31","question":"What is the most important quality in friendship to you"},
+    ];
+
     var currentIndex = 0.obs;
 
     changeCurrentIndex(int index) {
@@ -105,15 +111,18 @@ class HomeScreen extends StatelessWidget {
                   child: ListView.separated(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (_, __) => Container(
+                    itemBuilder: (_, index) => Container(
                       height: 300,
                       width: 200,
                       decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Colors.grey.shade900,
                         borderRadius: BorderRadius.circular(
                           30,
                         ),
                       ),
+                      child: Center(child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
+                        Text(slider[index]["name"],style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white,fontSize: 26),)
+                      ],)),
                     ),
                     separatorBuilder: (_, __) => SizedBox(
                       width: 20,
