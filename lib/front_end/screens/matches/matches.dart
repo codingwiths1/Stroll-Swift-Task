@@ -84,33 +84,50 @@ class Matches extends StatelessWidget {
                     Stack(
                       clipBehavior: Clip.none,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(stops:[0.0,0.3,0.4,0.7,0.8,1.0],
-                                colors: [
-                              Color(0xff15151f),
-                              Color(0xff4b8b24),
-                              Color(0xff4b8b24),
+                        Stack(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                gradient: SweepGradient(stops: [
+                                  0.0,
+                                  0.3,
+                                  0.4,
+                                  0.7,
+                                  0.8,
+                                  1.0
+                                ], colors: [
+                                  Color(0xff15151f),
                                   Color(0xff4b8b24),
-
+                                  Color(0xff4b8b24),
+                                  Color(0xff4b8b24),
                                   Color(0xff363636),
                                   Color(0xff363636),
-                            ]),
-                            borderRadius: BorderRadius.circular(
-                              30,
+                                ]),
+                                borderRadius: BorderRadius.circular(
+                                  30,
+                                ),
+                              ),
                             ),
-                            border: Border.all(
-                              width: 7,
+                            Positioned(
+                              top: 5,
+                              left: 5,
+                              right: 5,
+                              bottom: 5,
+                              child: ClipOval(
+                                child: Image.asset(
+                                  "asset/dp/Image.png",
+                                  height: 50,
+                                  width: 50,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
-                          child: ClipOval(
-                            child: Image.asset(
-                              "asset/dp/Image.png",
-                              height: 50,
-                              width: 50,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                            Positioned(right: 0,top: 25,
+                                child: Container(height: 5,width: 10,color: Color(
+                                    0x96b5b2ff),))
+                          ],
                         ),
                         Positioned(
                           bottom: -20,
@@ -257,7 +274,7 @@ class Matches extends StatelessWidget {
                                         textAlign: TextAlign.center,
                                         "What is your favourite childhood memory",
                                         style: TextStyle(
-                                          fontWeight: FontWeight.w300,
+                                          fontWeight: FontWeight.w400,
                                           color: Colors.white,
                                         ),
                                       ),
@@ -379,7 +396,7 @@ class Matches extends StatelessWidget {
                                         textAlign: TextAlign.center,
                                         "What is the most important quality in friendship to you",
                                         style: TextStyle(
-                                          fontWeight: FontWeight.w300,
+                                          fontWeight: FontWeight.w400,
                                           color: Colors.white,
                                         ),
                                       ),
@@ -398,6 +415,8 @@ class Matches extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
+
+              /// CHAT / PENDING
               SizedBox(
                 height: 50,
                 child: Row(
@@ -458,6 +477,8 @@ class Matches extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20),
+
+              /// CHATS
               Row(
                 children: [
                   ClipOval(
@@ -840,6 +861,19 @@ class Matches extends StatelessWidget {
                       "asset/images/Bottom Navigation Bar Icons (1).png"),
                   Image.asset(
                       "asset/images/Bottom Navigation Bar Icons (2).png"),
+                  Container(
+                    padding: const EdgeInsets.all(5.0),
+                    height: 55,
+                    width: 55,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          30,
+                        ),
+                        border: Border.all(width: 5, color: Color(0xff3a3c40))),
+                    child: ClipOval(
+                        child: Image.asset("asset/dp/Photo3.png",
+                            fit: BoxFit.cover)),
+                  )
                 ],
               ),
             ),
